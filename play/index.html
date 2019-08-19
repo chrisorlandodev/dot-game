@@ -10,5 +10,9 @@
 <script src="ui.js"></script>
 <script src="init.js"></script>
 <script src="../dist/dot-game.js"></script>
+<script type="application/javascript">
+    var dotGame = new DotGame.Game(4, 4, app.ports.response.send, console);
+    app.ports.request.subscribe(message => dotGame.request(message));
+</script>
 </body>
 </html>

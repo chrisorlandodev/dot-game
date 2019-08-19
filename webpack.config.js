@@ -3,12 +3,17 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './server/src/main.ts',
+  entry: './server/src/dot-game.ts',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [{
+          loader: 'expose-loader',
+          options: 'DotGame'
+        }, {
+          loader: 'ts-loader'
+        }],
         exclude: /node_modules/
       }
     ]
@@ -22,9 +27,9 @@ module.exports = {
     filename: 'dot-game.js',
     path: path.resolve(__dirname, 'dist')
   },
-  optimization: {
-    minimizer: [new UglifyJsPlugin({
-      sourceMap: true,
-    })],
-  },
+  // optimization: {
+  //   minimizer: [new UglifyJsPlugin({
+  //     sourceMap: true,
+  //   })],
+  // },
 };

@@ -224,6 +224,9 @@ export class DotGameEngine {
 
     const message = JSON.parse(messageJSON);
     switch (message.msg) {
+      case 'INITIALIZE':
+        this.initGame();
+        break;
       case 'NODE_CLICKED':
         const point = new Point(message.body.x, message.body.y);
         this.send(this._gameState.selectPoint(point));

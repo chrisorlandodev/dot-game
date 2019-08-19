@@ -6,7 +6,7 @@ import { DotGameLogInterface } from './dot-game.log';
  *
  * Exposes a the DotGame's request handler and initializes the game engine
  */
-export class DotGame {
+export class Game {
   private game: DotGameEngine;
 
   constructor(
@@ -21,5 +21,9 @@ export class DotGame {
 
   request(messageJSON: any) {
     this.game.request(messageJSON);
+  }
+
+  init() {
+    this.game.initGame();
   }
 }
