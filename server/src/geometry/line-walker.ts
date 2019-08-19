@@ -1,7 +1,7 @@
 import { LineSegment } from '../entities/line-segment';
 import { Point } from '../entities/point';
 import { InvalidLineTypeException } from '../exceptions/invalid-line-type.exception';
-import { LineType } from '../validators/line.type';
+import { LineType } from './line-type';
 import { Geometry } from './geometry';
 
 /**

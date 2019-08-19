@@ -1,6 +1,6 @@
 import { LineSegment } from '../entities/line-segment';
 import { Geometry } from '../geometry/geometry';
-import { LineType } from './line.type';
+import { LineType } from '../geometry/line-type';
 
 export class OctilinearLineValidator {
   /**

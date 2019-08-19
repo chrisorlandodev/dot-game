@@ -1,7 +1,7 @@
 import { LineSegment } from '../entities/line-segment';
 import { Point } from '../entities/point';
-import { LineType } from '../validators/line.type';
 import { Geometry } from './geometry';
+import { LineType } from './line-type';
 
 describe('Geometry', () => {
   describe('isPointOnSegment()', () => {
