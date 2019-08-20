@@ -4,7 +4,7 @@ import { DotGameLogInterface } from './dot-game.log';
 /**
  * DotGame
  *
- * Exposes a the DotGame's request handler and initializes the game engine
+ * Exposes the DotGame's request handler and initializes the game engine
  */
 export class Game {
   private game: DotGameEngine;

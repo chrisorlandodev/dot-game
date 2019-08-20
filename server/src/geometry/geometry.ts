@@ -37,7 +37,7 @@ export class Geometry {
     const slopeOfStartCheck = (startPoint.x - checkPoint.x) / (startPoint.y - checkPoint.y);
     const slopeOfCheckEnd = (checkPoint.x - endPoint.x) / (checkPoint.y - endPoint.y);
 
-    // If the slopes are different then the Check point is not on the infinite line
+    // If the slopes are different, then the Check point is not on the infinite line
     const isSameSlope = slopeOfStartCheck === slopeOfCheckEnd;
     if (!isSameSlope) {
       return false;
@@ -56,7 +56,7 @@ export class Geometry {
    */
   static areLinesParallel(line1: LineSegment, line2: LineSegment) {
     try {
-      // Throws ParallelLinesException is the lines are parallel
+      // Throws a ParallelLinesException if the lines are parallel
       Geometry.findIntersectionOfLines(line1, line2);
       return false;
     } catch (e) {
@@ -92,7 +92,7 @@ export class Geometry {
       return intersectsOnLine1 && intersectsOnLine2;
     } catch (e) {
       if (e instanceof ParallelLinesException) {
-        // lines are parallel
+        // lines are parallel and they do not touch as per above check
         return false;
       }
       throw e;
@@ -144,6 +144,7 @@ export class Geometry {
     const startPoint = line.startPoint;
     const endPoint = line.endPoint;
 
+    // A line must go somewhere
     if (startPoint.x === endPoint.x && startPoint.y === endPoint.y) {
       return LineType.Invalid;
     }
@@ -151,13 +152,13 @@ export class Geometry {
     const diffX = Math.abs(startPoint.x - endPoint.x);
     const diffY = Math.abs(startPoint.y - endPoint.y);
 
-    // Is Vertical line
+    // Vertical line - no change in X must be going up or down
     const isVerticalLine = diffX === 0 && diffY !== 0;
     if (isVerticalLine) {
       return LineType.Vertical;
     }
 
-    // Horizontal line
+    // Horizontal line - no change in Y must be going left or right
     const isHorizontalLine = diffY === 0 && diffX !== 0;
     if (isHorizontalLine) {
       return LineType.Horizontal;
