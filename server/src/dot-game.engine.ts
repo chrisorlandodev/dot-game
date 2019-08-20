@@ -1,5 +1,6 @@
 import { DotGameLog, DotGameLogInterface } from './dot-game.log';
 import { GameMessage } from './entities/game-message';
+import { GameMessageType } from './entities/game-message.type';
 import { LineSegment } from './entities/line-segment';
 import { Player } from './entities/player';
 import { Point } from './entities/point';
@@ -224,14 +225,14 @@ export class DotGameEngine {
 
     const message = JSON.parse(messageJSON);
     switch (message.msg) {
-      case 'INITIALIZE':
+      case GameMessageType.Initialize:
         this.initGame();
         break;
-      case 'NODE_CLICKED':
+      case GameMessageType.NodeClicked:
         const point = new Point(message.body.x, message.body.y);
         this.send(this._gameState.selectPoint(point));
         break;
-      case 'ERROR':
+      case GameMessageType.Error:
         const outMsg = 'What would you like me to do about it? Refresh if you got a problem.';
         this.send(GameMessage.UpdateText(this.currentPlayer().name, outMsg));
     }
