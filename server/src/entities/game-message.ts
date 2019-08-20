@@ -26,7 +26,7 @@ export class GameMessage {
    * @param line
    * @constructor
    */
-  private static Construct(
+  private static create(
     messageType: string,
     heading: string,
     message: string,
@@ -37,31 +37,31 @@ export class GameMessage {
   }
 
   /////////////////////////////////////////////////////
-  // Static methods to safely construct a game messages
-  /////////////////////////////////////////////////////
+  // Static methods to safely create game messages
+  ////////////////////////////////////////////////////
 
   /**
-   * Create in an INITIALIZE game message
+   * Create an INITIALIZE game message
    *
    * @param heading
    * @param message
    */
   static Initialize(heading: string, message: string) {
-    return GameMessage.Construct(GameMessageType.Initialize, heading, message);
+    return GameMessage.create(GameMessageType.Initialize, heading, message);
   }
 
   /**
-   * Create in a VALID_START_NODE game message
+   * Create a VALID_START_NODE game message
    *
    * @param heading
    * @param message
    */
   static ValidStartNode(heading: string, message: string) {
-    return GameMessage.Construct(GameMessageType.ValidStartNode, heading, message);
+    return GameMessage.create(GameMessageType.ValidStartNode, heading, message);
   }
 
   /**
-   * Create in an INVALID_START_NODE game message
+   * Create an INVALID_START_NODE game message
    *
    * @param heading
    * @param message
@@ -70,48 +70,48 @@ export class GameMessage {
     heading: string,
     message: string = 'You must start on either end of the path!'
   ) {
-    return GameMessage.Construct(GameMessageType.InvalidStartNode, heading, message);
+    return GameMessage.create(GameMessageType.InvalidStartNode, heading, message);
   }
 
   /**
-   * Create in a VALID_END_NODE game message
+   * Create a VALID_END_NODE game message
    *
    * @param heading
    * @param message
    * @param newLine
    */
   static ValidEndNode(heading: string, message: string, newLine: LineSegment): GameMessage {
-    return GameMessage.Construct(GameMessageType.ValidEndNode, heading, message, newLine);
+    return GameMessage.create(GameMessageType.ValidEndNode, heading, message, newLine);
   }
 
   /**
-   * Create in an INVALID_END_NODE game message
+   * Create an INVALID_END_NODE game message
    *
    * @param heading
    * @param message
    */
   static InvalidEndNode(heading: string, message: string = 'Not a valid line.') {
-    return GameMessage.Construct(GameMessageType.InvalidEndNode, heading, message);
+    return GameMessage.create(GameMessageType.InvalidEndNode, heading, message);
   }
 
   /**
-   * Create in a GAME_OVER game message
+   * Create a GAME_OVER game message
    *
    * @param heading
    * @param message
    * @param newLine
    */
   static GameOver(heading: string, message: string, newLine: LineSegment): GameMessage {
-    return GameMessage.Construct(GameMessageType.GameOver, heading, message, newLine);
+    return GameMessage.create(GameMessageType.GameOver, heading, message, newLine);
   }
 
   /**
-   * Create in a GAME_OVER game message
+   * Create a GAME_OVER game message
    *
    * @param heading
    * @param message
    */
   static UpdateText(heading: string, message: string): GameMessage {
-    return GameMessage.Construct(GameMessageType.UpdateText, heading, message);
+    return GameMessage.create(GameMessageType.UpdateText, heading, message);
   }
 }
