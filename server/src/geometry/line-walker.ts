@@ -50,15 +50,14 @@ export class LineWalker {
         return LineWalker.doWalkHorizontal(line);
       case LineType.Vertical:
         return LineWalker.doWalkVertical(line);
-      // return LineWalker.walkNonDiagonal(line, lineType);
       case LineType.Diagonal:
-        return LineWalker.walkDiagonal(line);
+        return LineWalker.doWalkDiagonal(line);
       case LineType.Invalid:
         throw new InvalidLineTypeException('Cannot walk an invalid line');
     }
   }
 
-  private static *walkDiagonal(line: LineSegment): IterableIterator<Point> {
+  private static *doWalkDiagonal(line: LineSegment): IterableIterator<Point> {
     const pointA = line.startPoint;
     const pointB = line.endPoint;
 
@@ -96,7 +95,7 @@ export class LineWalker {
   private static *doWalkVertical(line: LineSegment): IterableIterator<Point> {
     const pointA = line.startPoint;
     const pointB = line.endPoint;
-    // Walk the points along the X-axis
+    // Walk the points along the Y-axis
     const xAxis = pointA.x;
     const beginY = pointA.y;
     const endY = pointB.y;
