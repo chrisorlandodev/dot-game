@@ -76,7 +76,7 @@ npm test
 ## Built With
 
 * [Typescript](https://www.typescriptlang.org/)
-* [webpack.js.org](https://www.typescriptlang.org/)
+* [webpack](https://webpack.js.org/)
 
 
 ## Authors
