@@ -9,7 +9,7 @@ import { DotGameState } from './dot-game.state';
 /**
  * Handles the state of the game when a ending point of a line is to be selected
  *
- * After the point is selected, the game checks if the game can proceed.
+ * After a line is played, the game checks if the game can proceed.
  */
 export class LineEndState implements DotGameState {
   constructor(private dotGame: DotGameEngine) {}
@@ -43,7 +43,7 @@ export class LineEndState implements DotGameState {
     const nextPlayerName = this.dotGame.currentPlayer().name;
 
     /*
-     * If there are still moves available, it becomes the next player turn to start a new line.
+     * If there are still moves available, it becomes the next player's turn to start a new line.
      * Otherwise, it's Game Over!
      */
     if (this.dotGame.isMoveAvailable()) {

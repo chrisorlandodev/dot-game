@@ -54,7 +54,7 @@ export class PathTracker {
        * If the player used the head of the path prepend the points to the path; otherwise, append.
        */
       if (line.startPoint.is(this.headPoint())) {
-        // Flip the line as it's endpoint becomes that new head point of the path
+        // Flip the line as it's endpoint becomes the new head point of the path
         const flippedLine = line.asFlipped();
         DotGameLog.debug('Prepend Line(flipped): ', flippedLine.name);
         this._lines.unshift(flippedLine);
@@ -78,7 +78,6 @@ export class PathTracker {
    */
   hasEndPoints() {
     return this._lines.length > 0;
-    // return this._path.length > 1;
   }
 
   /**
@@ -99,7 +98,6 @@ export class PathTracker {
     }
 
     return this._lines[0].startPoint;
-    // return this._path[0];
   }
 
   /**
@@ -110,7 +108,6 @@ export class PathTracker {
       throw new NoEndpointsException('Tail point does not exists');
     }
     return this._lines[this.lines.length - 1].endPoint;
-    // return this._path[this._path.length - 1];
   }
 
   /**
@@ -119,7 +116,6 @@ export class PathTracker {
    * @param coordinates Coordinate pairs
    */
   build(coordinates: number[][]) {
-    // this._path = []; // clear the path ... coming through
     this._lines = [];
     for (let i = 0; i < coordinates.length - 1; i++) {
       const startPoint = new Point(coordinates[i][0], coordinates[i][1]);
